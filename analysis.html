@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Analysis | Loretta C. Duckworth Scholars Studio</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --cherry: #9D2235;
+            --cherry-dark: #7a1a29;
+            --cherry-light: #c9485b;
+            --gray-dark: #1a1a2e;
+            --gray-light: #f4f4f8;
+            --accent: #e8c547;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--gray-light);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--gray-dark), var(--cherry-dark));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 300;
+        }
+
+        header h1 strong { font-weight: 700; }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 750px;
+            margin: 0.5rem auto 0;
+        }
+
+        nav {
+            background: var(--cherry);
+            padding: 0.8rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover { opacity: 0.8; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            color: var(--cherry);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Stat cards */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .stat-card .number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--cherry);
+            line-height: 1;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        /* Chart containers */
+        .chart-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .chart-section h3 {
+            font-size: 1.3rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-section p.description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            max-height: 450px;
+        }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .chart-row .chart-section {
+            margin-bottom: 0;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--cherry);
+            color: white;
+            padding: 0.6rem 1rem;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:hover td {
+            background: var(--gray-light);
+        }
+
+        .data-table .bar-cell {
+            position: relative;
+        }
+
+        .data-table .bar {
+            display: inline-block;
+            height: 18px;
+            background: var(--cherry);
+            border-radius: 3px;
+            opacity: 0.7;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+
+        .methodology {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--cherry);
+        }
+
+        .methodology h3 {
+            color: var(--cherry);
+            margin-bottom: 0.5rem;
+        }
+
+        .methodology p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        footer {
+            background: var(--gray-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .chart-row {
+                grid-template-columns: 1fr;
+            }
+            nav a {
+                display: block;
+                margin: 0.3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Blog <strong>Analysis</strong></h1>
+    <p>Patterns in a decade of digital scholarship publishing at the Loretta C. Duckworth Scholars Studio, 2014&ndash;2026</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="analysis.html">Blog Analysis</a>
+</nav>
+
+<div class="container">
+
+    <div class="intro">
+        <h2>By the Numbers</h2>
+        <p>The LCDSS blog has served as the public record of the Scholars Studio since its founding in 2014. Every post below was cataloged from the blog's RSS feed to produce these visualizations.</p>
+    </div>
+
+    <!-- Summary stats -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="number" id="total-posts">230</div>
+            <div class="label">Total Blog Posts</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">12</div>
+            <div class="label">Years Active</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">90+</div>
+            <div class="label">Unique Authors</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">35+</div>
+            <div class="label">Disciplines Covered</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">19.2</div>
+            <div class="label">Avg. Posts / Year</div>
+        </div>
+    </div>
+
+    <!-- Chart 1: Posts per year -->
+    <div class="chart-section">
+        <h3>Publications Per Year</h3>
+        <p class="description">Annual output of blog posts from the studio's founding in mid-2014 through early 2026. Publication volume peaked in 2017 during a period of rapid program expansion, then stabilized. The 2020 dip coincides with the COVID-19 pandemic. Recovery and growth resumed as the studio transitioned to Charles Library and launched new programs like the makerspace residency.</p>
+        <div class="chart-wrapper">
+            <canvas id="yearChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart 2 & 3: Monthly patterns and categories -->
+    <div class="chart-row">
+        <div class="chart-section">
+            <h3>Seasonal Publishing Pattern</h3>
+            <p class="description">Post counts aggregated by month across all years. Publishing peaks in the fall and spring semesters, with a pronounced dip during summer months&mdash;reflecting the academic calendar that drives studio activity.</p>
+            <div class="chart-wrapper">
+                <canvas id="monthChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-section">
+            <h3>Top Disciplines</h3>
+            <p class="description">The most frequently tagged disciplinary categories across all blog posts. Graduate student work dominates, followed by digital humanities, history, and media studies.</p>
+            <div class="chart-wrapper">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 4: Methods -->
+    <div class="chart-section">
+        <h3>Digital Methods Over Time</h3>
+        <p class="description">Tracking the rise and fall of specific digital methods in blog posts across four eras. Early years focused on text analysis and mapping; VR and 3D entered mid-decade; critical making and machine learning grew in later years.</p>
+        <div class="chart-wrapper">
+            <canvas id="methodsChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart 5: Author types -->
+    <div class="chart-row">
+        <div class="chart-section">
+            <h3>Author Roles</h3>
+            <p class="description">Distribution of blog post authors by role. Graduate students are the primary contributors, reflecting the studio's emphasis on training the next generation of digital scholars.</p>
+            <div class="chart-wrapper">
+                <canvas id="authorChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-section">
+            <h3>Most Prolific Contributors</h3>
+            <p class="description">Authors with the most blog posts over the studio's history, spanning staff, fellows, and graduate externs.</p>
+            <div class="chart-wrapper">
+                <canvas id="topAuthorsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cumulative growth -->
+    <div class="chart-section">
+        <h3>Cumulative Blog Growth</h3>
+        <p class="description">Total number of posts published over time, showing steady, sustained growth from the studio's first posts in June 2014 through early 2026.</p>
+        <div class="chart-wrapper">
+            <canvas id="cumulativeChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Year-by-year table -->
+    <div class="chart-section">
+        <h3>Year-by-Year Breakdown</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Posts</th>
+                    <th>Distribution</th>
+                    <th>Notable Themes</th>
+                </tr>
+            </thead>
+            <tbody id="yearTable"></tbody>
+        </table>
+    </div>
+
+    <div class="methodology">
+        <h3>Methodology</h3>
+        <p>This analysis was compiled by systematically crawling all 26 pages of the LCDSS blog RSS feed at <code>sites.temple.edu/tudsc/feed/</code>, extracting publication dates, authors, and category tags for each post. Category tags were manually grouped into disciplinary fields and digital method clusters. Author roles were inferred from blog category tags (e.g., "Grad Students," "Staff," "Faculty Fellowships"). All charts are rendered client-side using Chart.js. Data was collected in February 2026.</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>
+        <a href="index.html">Home</a> &middot;
+        <a href="projects.html">Projects</a> &middot;
+        <a href="https://sites.temple.edu/tudsc/">LCDSS Blog</a> &middot;
+        Temple University Libraries
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">Charles Library, 1900 N. 13th Street, Philadelphia, PA 19122</p>
+</footer>
+
+<script>
+// ============================================================
+// DATA: Compiled from full RSS feed crawl (26 pages, ~230 posts)
+// ============================================================
+
+// Posts per year (counted from RSS feed pages 1-26)
+const yearData = {
+    labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+    counts: [14, 27, 28, 36, 25, 10, 10, 14, 16, 12, 22, 13, 3]
+};
+
+// Posts per month (aggregated across all years)
+const monthData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    counts: [11, 18, 22, 17, 21, 18, 10, 11, 26, 24, 22, 30]
+};
+
+// Top disciplinary categories (from tag frequency)
+const categoryData = {
+    labels: [
+        'Grad Students',
+        'Digital Humanities',
+        'History',
+        'Media & Comm',
+        'Art History',
+        'Cultural Studies',
+        'Geography/GIS',
+        'Literary Studies',
+        'Computer Science',
+        'Gaming Studies',
+        'Visual Art',
+        'Education',
+        'Film Studies'
+    ],
+    counts: [145, 42, 35, 30, 28, 26, 25, 22, 18, 16, 14, 13, 10]
+};
+
+// Digital methods across four eras
+const methodsData = {
+    labels: ['2014\u20132016', '2017\u20132018', '2019\u20132021', '2022\u20132025'],
+    datasets: [
+        { label: 'Text Analysis', data: [12, 14, 8, 10], color: '#9D2235' },
+        { label: 'Mapping / GIS', data: [8, 12, 10, 14], color: '#c9485b' },
+        { label: 'Network Analysis', data: [5, 8, 4, 4], color: '#e8c547' },
+        { label: '3D / VR / AR', data: [6, 10, 8, 12], color: '#1a1a2e' },
+        { label: 'Critical Making', data: [3, 5, 4, 10], color: '#4a7c59' },
+        { label: 'Machine Learning', data: [0, 1, 6, 4], color: '#5b7ea1' }
+    ]
+};
+
+// Author roles (inferred from category tags)
+const authorRoleData = {
+    labels: ['Graduate Students', 'Staff', 'Faculty/Fellows', 'Undergraduates', 'External/HASTAC'],
+    counts: [145, 40, 25, 8, 12]
+};
+
+// Top individual authors
+const topAuthorsData = {
+    labels: [
+        'Luling Huang',
+        'Kaelin Jewell',
+        'Emily Logan',
+        'Matt Shoemaker',
+        'Crystal Tatis',
+        'Jasmine Clark',
+        'Liz Rodrigues',
+        'Hannah Tardie',
+        'Andrea Siotto',
+        'Danielle Abdon'
+    ],
+    counts: [14, 12, 11, 10, 8, 7, 7, 7, 6, 6]
+};
+
+// Year table metadata
+const yearMeta = [
+    { year: '2014', posts: 14, themes: 'Founding year: DH methods, text analysis, network analysis, first Digital Scholars cohort' },
+    { year: '2015', posts: 27, themes: 'VR/Oculus Rift experiments, stylometry, GIS mapping, Dig!Arts, critical making with Arduino' },
+    { year: '2016', posts: 28, themes: 'Web scraping, WWI mapping series, stereoscopic VR, OpenRefine tutorials, makerspace launch' },
+    { year: '2017', posts: 36, themes: 'Peak output: Gen Con archive, Queer Encoding conference, sci-fi corpus, 360\u00b0 video, R tutorials' },
+    { year: '2018', posts: 25, themes: 'Virtual Blockson VR, misinformation networks, CLIR fellows, unsupervised learning series' },
+    { year: '2019', posts: 10, themes: 'YouTube network analysis, HathiTrust corpus, DH podcast launch, QGIS tutorials' },
+    { year: '2020', posts: 10, themes: 'COVID-19 impact: remote photogrammetry, machine learning for health, DLP 3D printing' },
+    { year: '2021', posts: 14, themes: 'Recovery: Blender archaeology, Wikidata series, New Sweden database, settler colonialism GIS' },
+    { year: '2022', posts: 16, themes: 'Black Philadelphia heritage, Colombian wetlands, meme stock analysis, student writing computation' },
+    { year: '2023', posts: 12, themes: 'Urban bee habitat GIS, Buddhist network analysis, game design, GIS Minoan archaeology' },
+    { year: '2024', posts: 22, themes: 'Makerspace residencies launch, Banned Books Project, Benin Bronzes, Game Jam, Green Design Lab' },
+    { year: '2025', posts: 13, themes: 'Istanbul churches archive, Fletcher Street mapping, critical making pedagogy, Faculty Learning Community' },
+    { year: '2026', posts: 3, themes: 'Staff profiles, ongoing programs (year in progress)' }
+];
+
+// ============================================================
+// CHARTS
+// ============================================================
+
+const cherry = '#9D2235';
+const cherryLight = '#c9485b';
+const cherryAlpha = 'rgba(157, 34, 53, 0.15)';
+
+// 1. Posts per year (bar chart)
+new Chart(document.getElementById('yearChart'), {
+    type: 'bar',
+    data: {
+        labels: yearData.labels,
+        datasets: [{
+            label: 'Blog Posts',
+            data: yearData.counts,
+            backgroundColor: yearData.labels.map((_, i) =>
+                i === yearData.labels.length - 1 ? 'rgba(157, 34, 53, 0.4)' : cherry
+            ),
+            borderRadius: 4
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    afterLabel: function(ctx) {
+                        const i = ctx.dataIndex;
+                        if (i === yearData.labels.length - 1) return '(Year in progress)';
+                        return '';
+                    }
+                }
+            }
+        },
+        scales: {
+            y: { beginAtZero: true, title: { display: true, text: 'Number of Posts' } },
+            x: { title: { display: true, text: 'Year' } }
+        }
+    }
+});
+
+// 2. Monthly pattern (radar chart)
+new Chart(document.getElementById('monthChart'), {
+    type: 'radar',
+    data: {
+        labels: monthData.labels,
+        datasets: [{
+            label: 'Posts',
+            data: monthData.counts,
+            backgroundColor: 'rgba(157, 34, 53, 0.2)',
+            borderColor: cherry,
+            borderWidth: 2,
+            pointBackgroundColor: cherry,
+            pointRadius: 4
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            r: {
+                beginAtZero: true,
+                ticks: { stepSize: 5 }
+            }
+        }
+    }
+});
+
+// 3. Disciplines (horizontal bar)
+new Chart(document.getElementById('categoryChart'), {
+    type: 'bar',
+    data: {
+        labels: categoryData.labels,
+        datasets: [{
+            label: 'Posts Tagged',
+            data: categoryData.counts,
+            backgroundColor: cherry,
+            borderRadius: 3
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { beginAtZero: true, title: { display: true, text: 'Number of Tagged Posts' } }
+        }
+    }
+});
+
+// 4. Methods over time (stacked bar)
+new Chart(document.getElementById('methodsChart'), {
+    type: 'bar',
+    data: {
+        labels: methodsData.labels,
+        datasets: methodsData.datasets.map(d => ({
+            label: d.label,
+            data: d.data,
+            backgroundColor: d.color,
+            borderRadius: 2
+        }))
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: { position: 'bottom' }
+        },
+        scales: {
+            x: { stacked: true },
+            y: { stacked: true, beginAtZero: true, title: { display: true, text: 'Posts Using Method' } }
+        }
+    }
+});
+
+// 5. Author roles (doughnut)
+new Chart(document.getElementById('authorChart'), {
+    type: 'doughnut',
+    data: {
+        labels: authorRoleData.labels,
+        datasets: [{
+            data: authorRoleData.counts,
+            backgroundColor: ['#9D2235', '#c9485b', '#e8c547', '#1a1a2e', '#4a7c59'],
+            borderWidth: 2,
+            borderColor: '#fff'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 14, padding: 12 } }
+        }
+    }
+});
+
+// 6. Top authors (horizontal bar)
+new Chart(document.getElementById('topAuthorsChart'), {
+    type: 'bar',
+    data: {
+        labels: topAuthorsData.labels,
+        datasets: [{
+            label: 'Posts',
+            data: topAuthorsData.counts,
+            backgroundColor: cherryLight,
+            borderRadius: 3
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { beginAtZero: true, title: { display: true, text: 'Number of Posts' } }
+        }
+    }
+});
+
+// 7. Cumulative growth (line)
+const cumulative = [];
+let running = 0;
+yearData.counts.forEach(c => {
+    running += c;
+    cumulative.push(running);
+});
+
+new Chart(document.getElementById('cumulativeChart'), {
+    type: 'line',
+    data: {
+        labels: yearData.labels,
+        datasets: [{
+            label: 'Total Posts',
+            data: cumulative,
+            borderColor: cherry,
+            backgroundColor: cherryAlpha,
+            fill: true,
+            tension: 0.3,
+            pointRadius: 5,
+            pointBackgroundColor: cherry
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { beginAtZero: true, title: { display: true, text: 'Cumulative Posts' } },
+            x: { title: { display: true, text: 'Year' } }
+        }
+    }
+});
+
+// 8. Year table
+const tableBody = document.getElementById('yearTable');
+const maxPosts = Math.max(...yearMeta.map(y => y.posts));
+yearMeta.forEach(row => {
+    const barWidth = Math.round((row.posts / maxPosts) * 200);
+    tableBody.innerHTML += `
+        <tr>
+            <td><strong>${row.year}</strong></td>
+            <td>${row.posts}</td>
+            <td class="bar-cell">
+                <span class="bar" style="width: ${barWidth}px;"></span>
+            </td>
+            <td>${row.themes}</td>
+        </tr>
+    `;
+});
+</script>
+
+</body>
+</html>

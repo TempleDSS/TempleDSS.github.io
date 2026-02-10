@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase | Loretta C. Duckworth Scholars Studio</title>
+    <style>
+        :root {
+            --cherry: #9D2235;
+            --cherry-dark: #7a1a29;
+            --gray-dark: #1a1a2e;
+            --gray-light: #f4f4f8;
+            --accent: #e8c547;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--gray-light);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--gray-dark), var(--cherry-dark));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        header h1 strong { font-weight: 700; }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 750px;
+            margin: 0.5rem auto 0;
+        }
+
+        nav {
+            background: var(--cherry);
+            padding: 0.8rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover { opacity: 0.8; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            color: var(--cherry);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Project showcase cards */
+        .project {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 380px;
+        }
+
+        .project:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            min-height: 380px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .project:hover .project-image img {
+            transform: scale(1.03);
+        }
+
+        .project-image .year-overlay {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--cherry);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .project-content .meta {
+            font-size: 0.9rem;
+            color: var(--cherry);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--gray-light);
+            color: var(--text-light);
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .read-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--cherry);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .read-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--gray-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 900px) {
+            .project {
+                grid-template-columns: 1fr;
+            }
+            .project:nth-child(even) {
+                direction: ltr;
+            }
+            .project-image {
+                min-height: 250px;
+                max-height: 300px;
+            }
+            nav a {
+                display: block;
+                margin: 0.3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Project <strong>Showcase</strong></h1>
+    <p>A curated selection of the most ambitious and creative work produced at the Loretta C. Duckworth Scholars Studio, 2014&ndash;2025</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="analysis.html">Blog Analysis</a>
+</nav>
+
+<div class="container">
+
+    <div class="intro">
+        <h2>A Decade of Digital Scholarship</h2>
+        <p>These projects were selected to represent the full range of what the Scholars Studio makes possible: from immersive cultural heritage archives to network analyses of misinformation, from critical making sculptures to machine learning for public health. Each one pushed the boundaries of its discipline using digital methods supported by studio staff and equipment.</p>
+    </div>
+
+    <!-- 2025: Greek Orthodox Churches -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2025</span>
+            <img src="https://sites.temple.edu/tudsc/files/2025/04/e492c2c4-7e76-4bbe-8f33-b3dac0ae6c4b-2-1-1024x768.jpg"
+                 alt="Interior of a Greek Orthodox church in Istanbul, captured for the immersive archive">
+        </div>
+        <div class="project-content">
+            <h3>Building an Immersive Archive of Greek Orthodox Churches in Istanbul</h3>
+            <p class="meta">Emily Neumeier &middot; Art History / Architecture / Digital Humanities</p>
+            <p>A faculty-led project using 360&deg; video and 3D modeling to create a navigable digital archive of overlooked Greek Orthodox religious monuments in Istanbul. The project demonstrates how immersive visualization can transform understanding of architectural heritage that is difficult to access in person, preserving spaces threatened by neglect and urban development.</p>
+            <div class="tags">
+                <span class="tag">360&deg; video</span>
+                <span class="tag">3D modeling</span>
+                <span class="tag">cultural heritage</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2025/04/15/building-an-immersive-archive-of-the-greek-orthodox-churches-in-istanbul/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2025: Fletcher Street -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2025</span>
+            <img src="https://sites.temple.edu/tudsc/files/2025/04/ENTIRE-philly-map.png"
+                 alt="GIS map of Philadelphia showing historical locations of Black-run horse stables">
+        </div>
+        <div class="project-content">
+            <h3>The Untold History of Fletcher Street's Stables</h3>
+            <p class="meta">Courtney Berne &middot; History / Urban Studies / Geography</p>
+            <p>A multi-layered GIS mapping project documenting the evolution of Black-run horse stables in North Philadelphia. Combining archival research, spatial analysis, and oral history, Berne traces how these stables have shaped and been shaped by urban change, creating a digital counter-narrative for a community often overlooked in official city records.</p>
+            <div class="tags">
+                <span class="tag">GIS</span>
+                <span class="tag">mapping</span>
+                <span class="tag">public history</span>
+                <span class="tag">urban studies</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2025/04/21/the-untold-history-of-fletcher-streets-stables/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2024: Tunnel of Love -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2024</span>
+            <img src="https://sites.temple.edu/tudsc/files/2024/01/thumbnail_IMG_3916-850x665.jpg"
+                 alt="Tunnel of Love installation by Ollie Goss in the makerspace">
+        </div>
+        <div class="project-content">
+            <h3>Tunnel of Love: The First Makerspace Residency</h3>
+            <p class="meta">Ollie Goss &middot; Sculpture / Visual Art</p>
+            <p>The inaugural makerspace residency produced an immersive sculptural installation exploring queerness, secrecy, and visibility through the aesthetic of an amusement-park dark ride. Goss combined laser-cut components, electronics, and hand-crafted elements to create an interactive physical experience that set the standard for all residencies to follow.</p>
+            <div class="tags">
+                <span class="tag">sculpture</span>
+                <span class="tag">electronics</span>
+                <span class="tag">laser cutting</span>
+                <span class="tag">critical making</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2024/06/17/tunnel-of-love-the-first-makerspace-residency/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2024: Banned Books -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2024</span>
+            <img src="https://sites.temple.edu/tudsc/files/2024/04/primary-color-1024x506.png"
+                 alt="Data visualization of color analysis across banned book covers">
+        </div>
+        <div class="project-content">
+            <h3>The Banned Books Project (3-Part Series)</h3>
+            <p class="meta">SaraGrace Stefan, Sydney Grimm, Abigail Corcelli &middot; Literary Studies / Digital Humanities</p>
+            <p>A collaborative, three-part computational text analysis initiative from the Representation Lab examining literary censorship from multiple angles: distant reading of banned titles, visual rhetoric of book covers, and the mechanisms of censorship. The project demonstrates how digital methods illuminate systemic cultural forces.</p>
+            <div class="tags">
+                <span class="tag">text analysis</span>
+                <span class="tag">distant reading</span>
+                <span class="tag">data visualization</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2024/05/01/climbing-a-mountain-of-books-with-distant-reading-part-1-of-the-banned-books-project/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2024: Benin Bronzes -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2024</span>
+            <img src="https://sites.temple.edu/tudsc/files/2024/03/Felt-image-850x422.png"
+                 alt="Map visualization of Benin Bronzes displacement routes">
+        </div>
+        <div class="project-content">
+            <h3>Navigating the Western Movement of Artifacts: Mapping the Looted Benin Bronzes</h3>
+            <p class="meta">Mikayla Gonzalez &middot; History / Media Studies</p>
+            <p>A GIS-driven investigation of colonial artifact displacement, mapping the global journeys of the Benin Bronzes from their origins to museums and private collections worldwide. The project visualizes repatriation debates and the geographic dimensions of cultural heritage disputes with striking cartographic clarity.</p>
+            <div class="tags">
+                <span class="tag">mapping</span>
+                <span class="tag">cultural heritage</span>
+                <span class="tag">colonial history</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2024/04/01/navigating-the-western-movement-of-artifacts-mapping-the-looted-benin-bronzes/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2024: Rock TV -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2024</span>
+            <img src="https://sites.temple.edu/tudsc/files/2024/09/Lally.jpg"
+                 alt="Francesca Lally working on Rock TV in the makerspace">
+        </div>
+        <div class="project-content">
+            <h3>Rock TV: Makerspace Residency</h3>
+            <p class="meta">Francesca Lally &middot; Visual Art / Archaeology</p>
+            <p>An interdisciplinary project transforming vintage 1970s Fisher-Price Movie Viewers into hand-cranked cinema devices. Lally hand-painted Super 8 film sequences, laser-cut mirrored plexiglass panels inscribed with texts from Scottish geologists, and hand-typed a bound script on dura-lar film. The work was exhibited at Vox Populi's 2024 juried exhibition in Philadelphia.</p>
+            <div class="tags">
+                <span class="tag">laser cutting</span>
+                <span class="tag">film</span>
+                <span class="tag">sculpture</span>
+                <span class="tag">exhibition</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2024/09/30/makerspace-residency-rock-tv/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2024: Green Design Lab -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2024</span>
+            <img src="https://sites.temple.edu/tudsc/files/2024/08/20240730-IMG_3437-1024x768.jpg"
+                 alt="Pre-college students working in the makerspace during Green Design Lab">
+        </div>
+        <div class="project-content">
+            <h3>Green Design Lab: Pre-College in the Makerspace</h3>
+            <p class="meta">Hannah Tardie &middot; Education / Sustainable Design</p>
+            <p>A two-week pilot course bringing pre-college students into the makerspace to combine sustainable design principles with 3D printing and digital fabrication. The program introduced high schoolers to iterative prototyping while centering environmental responsibility&mdash;a model for outreach beyond the university.</p>
+            <div class="tags">
+                <span class="tag">3D printing</span>
+                <span class="tag">sustainability</span>
+                <span class="tag">education</span>
+                <span class="tag">digital fabrication</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2024/08/21/green-design-lab-pre-college-in-the-makerspace/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2024: Kim Lim -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2024</span>
+            <img src="https://sites.temple.edu/tudsc/files/2024/11/Screenshot-2024-11-16-at-9.52.01 PM-1024x614.png"
+                 alt="Digital map of Kim Lim's transnational artistic practice">
+        </div>
+        <div class="project-content">
+            <h3>Mapping Kim Lim's Artistic Practice</h3>
+            <p class="meta">Jessica Braum &middot; Art History / Asian Studies / Sculpture</p>
+            <p>A digital humanities approach to art history that visualizes the transnational movements and influences of sculptor Kim Lim using mapping tools. The project demonstrates how spatial visualization can reveal patterns in an artist's career that traditional art historical methods might miss.</p>
+            <div class="tags">
+                <span class="tag">mapping</span>
+                <span class="tag">art history</span>
+                <span class="tag">transnational</span>
+                <span class="tag">modernism</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2024/11/18/mapping-kim-lims-artistic-practice-a-digital-humanities-approach-to-art-history/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2023: Bees -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2023</span>
+            <img src="https://sites.temple.edu/tudsc/files/2023/05/Screenshot-2023-05-08-212619-1024x789.png"
+                 alt="GIS visualization of urban land cover and bee habitat suitability">
+        </div>
+        <div class="project-content">
+            <h3>Urban GIS, Land Cover, and Bees in the City</h3>
+            <p class="meta">Austin Martin &middot; Geography / Urban Studies / Ecology</p>
+            <p>Using remote sensing data and GIS spatial analysis, this project investigated urban landscapes as potential habitats for declining bee populations. By mapping land cover classifications across city environments with R, Martin demonstrated that cities can serve as unexpected havens for pollinators.</p>
+            <div class="tags">
+                <span class="tag">GIS</span>
+                <span class="tag">remote sensing</span>
+                <span class="tag">ecology</span>
+                <span class="tag">R</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2023/05/15/urban-gis-land-cover-and-bees-in-the-city/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2022: Wikidata -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2022</span>
+            <img src="https://sites.temple.edu/tudsc/files/2022/01/fig4_philly-850x411.png"
+                 alt="Visualization of Wikidata entries for Black art exhibitions in Philadelphia">
+        </div>
+        <div class="project-content">
+            <h3>Visualizing Wikidata: Identity and Representation in Black Art Exhibitions</h3>
+            <p class="meta">Synatra Smith, Jay Winkler, Rebecca Y. Bayeck &middot; Art History / Cultural Studies / DH</p>
+            <p>A linked open data project using Python to query and visualize Wikidata's representation of Black art exhibitions. The project interrogated what knowledge structures like Wikidata include, exclude, and how they encode identity&mdash;bridging digital scholarship with critical race studies.</p>
+            <div class="tags">
+                <span class="tag">linked open data</span>
+                <span class="tag">Python</span>
+                <span class="tag">Wikidata</span>
+                <span class="tag">data visualization</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2022/01/24/visualizing-wikidata-using-python-to-analyze-identity-and-representation-in-wikidata-about-black-art-exhibitions/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2022: Colombian Wetlands -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2022</span>
+            <img src="https://sites.temple.edu/tudsc/files/2022/03/Infrared-map-1024x791.jpeg"
+                 alt="Infrared satellite imagery of Colombian wetlands showing land cover changes">
+        </div>
+        <div class="project-content">
+            <h3>Visualizing Changes in Colombian Wetlands with ArcGIS Story Maps</h3>
+            <p class="meta">Maria Victoria Sarmiento Giraldo &middot; Geography / GIS</p>
+            <p>A spatial storytelling project documenting environmental land cover changes in Colombian wetland ecosystems using ArcGIS Story Maps. The work combined satellite imagery analysis with narrative to make ecological data accessible to wider audiences, modeling how GIS can serve public communication.</p>
+            <div class="tags">
+                <span class="tag">ArcGIS Story Maps</span>
+                <span class="tag">GIS</span>
+                <span class="tag">environmental studies</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2022/03/21/visualizing-changes-in-colombian-wetlands-with-arcgis-story-maps/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2022: Diggin' Philly -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2022</span>
+            <img src="https://sites.temple.edu/tudsc/files/2022/01/thumbnail_IMG_0025.jpg"
+                 alt="Photograph from the Diggin' Philly Black Philadelphia Project">
+        </div>
+        <div class="project-content">
+            <h3>Diggin' Philly: The Black Philadelphia Project</h3>
+            <p class="meta">Tauheedah Asad &middot; History / Urban Studies / Media</p>
+            <p>A digital cultural heritage initiative grounded in journalism that documents and preserves Black Philadelphia's built environment and community history. The two-part project explored digital practices for studying cultural heritage, combining mapping, oral history, and archival research to amplify underrepresented narratives.</p>
+            <div class="tags">
+                <span class="tag">cultural heritage</span>
+                <span class="tag">mapping</span>
+                <span class="tag">public history</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2022/02/08/digital-practices-for-the-study-of-cultural-heritage-part-1/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2021: Archaeological 3D Map -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2021</span>
+            <img src="https://sites.temple.edu/tudsc/files/2021/04/reconsnip-1-1024x633.png"
+                 alt="3D reconstruction of an archaeological site created in Blender">
+        </div>
+        <div class="project-content">
+            <h3>Creating a 3D Map of an Archaeological Site in Blender</h3>
+            <p class="meta">Elysia Petras &middot; Archaeology / History</p>
+            <p>A pioneering exploration of using the open-source 3D software Blender for historical archaeological research. Petras demonstrated how 3D terrain reconstruction can reveal spatial relationships invisible in traditional 2D site plans, creating new methods for landscape archaeology and digital preservation of excavation sites.</p>
+            <div class="tags">
+                <span class="tag">Blender</span>
+                <span class="tag">3D modeling</span>
+                <span class="tag">archaeology</span>
+                <span class="tag">landscape</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2021/04/03/creating-a-3d-map-of-an-archaeological-site-in-blender/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2020: Arcade Our Way -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2020</span>
+            <img src="https://sites.temple.edu/tudsc/files/2020/12/IMG_0111-850x638.jpeg"
+                 alt="Arcade Our Way exhibition featuring video games and toys for social change">
+        </div>
+        <div class="project-content">
+            <h3>Arcade Our Way: Video Games and Toys for Social Change</h3>
+            <p class="meta">Renee Jackson &middot; Art Education / Gaming Studies</p>
+            <p>A faculty fellowship project culminating in an art exhibition (displayed through November 2021) that used video games and interactive toys as vehicles for social commentary. The project exemplified how game design and play can function as critical artistic practice, engaging visitors of all ages.</p>
+            <div class="tags">
+                <span class="tag">game design</span>
+                <span class="tag">art</span>
+                <span class="tag">exhibition</span>
+                <span class="tag">social change</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2020/12/07/arcade-our-way-video-games-and-toys-for-social-change/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2020: Built Environment & Health -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2020</span>
+            <img src="https://sites.temple.edu/tudsc/files/2020/04/Screen-Shot-2020-04-09-at-8.48.57-AM-1024x651.png"
+                 alt="Machine learning visualization of built environment health impact analysis">
+        </div>
+        <div class="project-content">
+            <h3>Measuring Impact of Built Environment on Health (4-Part Series)</h3>
+            <p class="meta">Huilin Zhu &middot; Geography / Economics / Computer Science</p>
+            <p>A four-part deep dive using machine learning and neural networks to study how built environments affect health outcomes&mdash;specifically obesity prevalence&mdash;across Pennsylvania. The project combined satellite imagery, transfer learning with Keras, and spatial analysis in a genuinely interdisciplinary approach that bridged computer science and public health.</p>
+            <div class="tags">
+                <span class="tag">machine learning</span>
+                <span class="tag">neural networks</span>
+                <span class="tag">GIS</span>
+                <span class="tag">public health</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2020/04/22/measuring-impact-of-built-environment-on-health-part-iv-data-analysis/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2017: Gen Con -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2017</span>
+            <img src="https://sites.temple.edu/tudsc/files/2017/07/25406f529f4052760246809f9f4666231-e1500665430917.jpg"
+                 alt="Gen Con 50th Anniversary Programs digital archive">
+        </div>
+        <div class="project-content">
+            <h3>50 Years of Gen Con Events</h3>
+            <p class="meta">Matt Shoemaker &middot; History / Gaming Studies</p>
+            <p>A large-scale digital archive project documenting fifty years of Gen Con gaming convention programming. Built with Omeka, the publicly accessible archive became the foundation for the first dataset published in TUScholarShare years later&mdash;connecting gaming history with institutional data preservation in a project that continues to grow.</p>
+            <div class="tags">
+                <span class="tag">Omeka</span>
+                <span class="tag">digital archive</span>
+                <span class="tag">gaming history</span>
+                <span class="tag">TUScholarShare</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2017/07/26/50-years-of-gen-con-events-best50yearsingaming-com/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2016: WWI Ships -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2016</span>
+            <img src="https://sites.temple.edu/tudsc/files/2016/08/Img-Blog-Intro-WW1-map.jpg"
+                 alt="Map visualization of naval losses during World War I">
+        </div>
+        <div class="project-content">
+            <h3>Mapping Ships Lost During the First World War</h3>
+            <p class="meta">Andrea Siotto &middot; Geography / History</p>
+            <p>A multi-part project combining web scraping (Python and C#), geocoding, and QGIS to map the locations and circumstances of naval losses during WWI. The series became one of the most widely-read tutorials on the blog, walking readers through the full pipeline from data collection to animated geospatial visualization.</p>
+            <div class="tags">
+                <span class="tag">web scraping</span>
+                <span class="tag">Python</span>
+                <span class="tag">QGIS</span>
+                <span class="tag">historical mapping</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2016/08/30/mapping-the-ships-lost-during-the-first-world-war/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2015: If Gardens Could Talk -->
+    <div class="project">
+        <div class="project-image">
+            <span class="year-overlay">2015</span>
+            <img src="https://sites.temple.edu/tudsc/files/2015/09/Community-Garden-Nexus1-1024x1024.jpg"
+                 alt="Arduino-based environmental sensor network for Philadelphia community gardens">
+        </div>
+        <div class="project-content">
+            <h3>If Gardens Could Talk</h3>
+            <p class="meta">Environmental Studies Graduate Students</p>
+            <p>An early critical making project using Arduino microcontrollers and Raspberry Pi sensors to give Philadelphia community gardens a "voice"&mdash;collecting environmental data and visualizing it through GIS. The project blended physical computing, environmental science, and community engagement, embodying the studio's ethos from its earliest days.</p>
+            <div class="tags">
+                <span class="tag">Arduino</span>
+                <span class="tag">Raspberry Pi</span>
+                <span class="tag">critical making</span>
+                <span class="tag">environmental studies</span>
+            </div>
+            <a class="read-link" href="https://sites.temple.edu/tudsc/2015/09/17/if-gardens-could-talk-part-1/">Read the full post &rarr;</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>
+        <a href="index.html">Home</a> &middot;
+        <a href="analysis.html">Blog Analysis</a> &middot;
+        <a href="https://sites.temple.edu/tudsc/">LCDSS Blog</a> &middot;
+        Temple University Libraries
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">Charles Library, 1900 N. 13th Street, Philadelphia, PA 19122</p>
+</footer>
+
+</body>
+</html>
