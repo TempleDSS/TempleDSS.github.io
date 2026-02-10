@@ -1,1 +1,771 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loretta C. Duckworth Scholars Studio | Temple University Libraries</title>
+    <style>
+        :root {
+            --cherry: #9D2235;
+            --cherry-dark: #7a1a29;
+            --gray-dark: #1a1a2e;
+            --gray-mid: #2d2d44;
+            --gray-light: #f4f4f8;
+            --accent: #e8c547;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--gray-dark), var(--cherry-dark));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        header h1 strong {
+            font-weight: 700;
+        }
+
+        header p.subtitle {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0.5rem auto 0;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--cherry);
+            padding: 0.8rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--gray-light);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--cherry);
+            border-bottom: 3px solid var(--cherry);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--gray-dark);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--cherry);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--cherry);
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .service-card ul li::before {
+            content: "\25B8";
+            position: absolute;
+            left: 0;
+            color: var(--cherry);
+        }
+
+        /* Spaces section */
+        .spaces-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .space-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .space-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .space-item h4 {
+            color: var(--cherry);
+            margin-bottom: 0.3rem;
+        }
+
+        .space-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Timeline / Projects */
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--cherry);
+            position: relative;
+        }
+
+        .project-card .year-badge {
+            display: inline-block;
+            background: var(--cherry);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+
+        .project-card .meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card .tags {
+            margin-top: 0.8rem;
+        }
+
+        .project-card .tag {
+            display: inline-block;
+            background: var(--gray-light);
+            color: var(--text-light);
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin: 0.2rem 0.1rem;
+        }
+
+        /* Programs section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .program-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .program-item h4 {
+            color: var(--cherry);
+            margin-bottom: 0.5rem;
+        }
+
+        .program-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.3rem 0;
+            }
+            .services-grid,
+            .spaces-list,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>The Loretta C. Duckworth <strong>Scholars Studio</strong></h1>
+    <p class="subtitle">Temple University Libraries' hub for digital scholarship, critical making, and immersive technology</p>
+</header>
+
+<nav>
+    <a href="#overview">Overview</a>
+    <a href="#services">Services</a>
+    <a href="#spaces">Spaces</a>
+    <a href="#programs">Programs</a>
+    <a href="#projects">Projects</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+    <div class="container">
+        <h2>What Is the Scholars Studio?</h2>
+        <p>The <strong>Loretta C. Duckworth Scholars Studio (LCDSS)</strong> is the digital scholarship center of Temple University Libraries, located inside Charles Library. Since its founding in 2014 as the Digital Scholarship Center (DSC) in Paley Library, it has grown into a multidisciplinary space where faculty, students, and researchers apply computational and creative methods to questions across the humanities, social sciences, sciences, and the arts.</p>
+        <p>The Scholars Studio provides one-on-one consultations, hands-on workshops, fellowship and residency programs, and access to specialized equipment&mdash;from 3D printers and laser cutters to VR headsets and media production tools. Its mission is to lower barriers to advanced digital methods and foster collaborative, experimental scholarship at every level of the university.</p>
+        <p>Over the past decade, the Scholars Studio has supported work spanning more than 35 academic disciplines, documented in an extensive blog archive of over 200 project write-ups, tutorials, and reflections. It has trained hundreds of graduate and undergraduate students in skills ranging from Python and GIS to photogrammetry and game design.</p>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="container">
+        <h2>Primary Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Data &amp; Text Analysis</h3>
+                <ul>
+                    <li>Data visualization and cleaning</li>
+                    <li>Corpus building and text mining</li>
+                    <li>Topic modeling and stylometry</li>
+                    <li>Web scraping and API harvesting</li>
+                    <li>Tools: Python, R, Voyant, OpenRefine</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Mapping &amp; Spatial Analysis</h3>
+                <ul>
+                    <li>GIS and geospatial visualization</li>
+                    <li>Historical and thematic mapping</li>
+                    <li>Terrain modeling</li>
+                    <li>ArcGIS Story Maps</li>
+                    <li>Tools: QGIS, ArcGIS, Google My Maps</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>3D &amp; Immersive Technology</h3>
+                <ul>
+                    <li>3D modeling and 3D printing</li>
+                    <li>Photogrammetry and 3D scanning</li>
+                    <li>Virtual and augmented reality</li>
+                    <li>360&deg; video production</li>
+                    <li>Tools: Blender, Metashape, Unity</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Network Analysis &amp; Visualization</h3>
+                <ul>
+                    <li>Social and historical network modeling</li>
+                    <li>Graph databases and relational data</li>
+                    <li>Data-driven storytelling</li>
+                    <li>Tools: Gephi, NetworkX, Tableau</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Critical Making &amp; Fabrication</h3>
+                <ul>
+                    <li>Laser cutting and digital fabrication</li>
+                    <li>Arduino and physical computing</li>
+                    <li>Electronics prototyping</li>
+                    <li>Sustainable design workshops</li>
+                    <li>Makerspace residency program</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Media Production &amp; Publishing</h3>
+                <ul>
+                    <li>Film and video editing</li>
+                    <li>Digital preservation</li>
+                    <li>Dataset publication (TUScholarShare)</li>
+                    <li>Open-access publishing support</li>
+                    <li>Research data management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SPACES -->
+<section id="spaces">
+    <div class="container">
+        <h2>Studio Spaces</h2>
+        <p>The Scholars Studio occupies a suite of purpose-built spaces in Charles Library, each designed to support different modes of digital and creative work.</p>
+        <div class="spaces-list">
+            <div class="space-item">
+                <div class="icon">&#x1F3ED;</div>
+                <h4>Makerspace</h4>
+                <p>3D printers, laser cutter, hand tools, and materials for digital fabrication and critical making</p>
+            </div>
+            <div class="space-item">
+                <div class="icon">&#x1F453;</div>
+                <h4>VR / Visualization Studio</h4>
+                <p>Virtual reality headsets and high-performance workstations for immersive projects</p>
+            </div>
+            <div class="space-item">
+                <div class="icon">&#x1F3AC;</div>
+                <h4>Media Production Studio</h4>
+                <p>Video, audio, and 360&deg; recording equipment for multimedia scholarship</p>
+            </div>
+            <div class="space-item">
+                <div class="icon">&#x1F4BB;</div>
+                <h4>Computer Lab</h4>
+                <p>Workstations with specialized software for GIS, text analysis, 3D modeling, and coding</p>
+            </div>
+            <div class="space-item">
+                <div class="icon">&#x1F3A4;</div>
+                <h4>Presentation Practice Rooms</h4>
+                <p>Reservable rooms for rehearsing talks, recording content, and small-group collaboration</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+    <div class="container">
+        <h2>Programs &amp; Fellowships</h2>
+        <div class="programs-grid">
+            <div class="program-item">
+                <h4>Faculty Fellowship Program</h4>
+                <p>Semester-long fellowships supporting faculty in developing digital research or pedagogical projects with Scholars Studio staff.</p>
+            </div>
+            <div class="program-item">
+                <h4>Graduate Extern Program</h4>
+                <p>Graduate students work alongside studio staff, gaining hands-on experience in digital methods while advancing their own research.</p>
+            </div>
+            <div class="program-item">
+                <h4>Faculty Learning Community</h4>
+                <p>A cohort-based program (now in its fourth year) where faculty integrate advanced digital tools into their teaching practice.</p>
+            </div>
+            <div class="program-item">
+                <h4>Makerspace Residency</h4>
+                <p>Artists and makers spend extended time in the makerspace creating work with digital fabrication, electronics, and emerging technology.</p>
+            </div>
+            <div class="program-item">
+                <h4>Cultural Analytics Practicum</h4>
+                <p>A certificate-level program training students in computational approaches to cultural data, from text mining to image analysis.</p>
+            </div>
+            <div class="program-item">
+                <h4>Innovative Teaching with Makerspace Technology Grant</h4>
+                <p>Funding for faculty to incorporate makerspace tools&mdash;3D printing, laser cutting, physical computing&mdash;into their courses.</p>
+            </div>
+            <div class="program-item">
+                <h4>LCDSS Game Jam</h4>
+                <p>Annual event where students design and build original games in a compressed timeframe, blending creativity with technical skill.</p>
+            </div>
+            <div class="program-item">
+                <h4>Digital Scholars Program</h4>
+                <p>An early initiative pairing graduate students with digital tools and mentorship to develop semester-long research projects.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <h2>Notable Projects Across a Decade</h2>
+        <p>Below is a selection of standout projects produced at the Scholars Studio from 2014 to 2025, illustrating the breadth of disciplines, methods, and creative ambition the studio has supported.</p>
+
+        <div class="project-card">
+            <span class="year-badge">2025</span>
+            <h3>Building an Immersive Archive of Greek Orthodox Churches in Istanbul</h3>
+            <p class="meta">Emily Neumeier &middot; Art History / Architecture / Digital Humanities</p>
+            <p>A faculty-led project using 360&deg; video and 3D modeling to create a navigable digital archive of overlooked Greek Orthodox religious monuments in Istanbul. The project demonstrates how immersive visualization can transform our understanding of architectural heritage that is difficult to access in person.</p>
+            <div class="tags">
+                <span class="tag">360&deg; video</span>
+                <span class="tag">3D modeling</span>
+                <span class="tag">cultural heritage</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2025</span>
+            <h3>The Untold History of Fletcher Street's Stables</h3>
+            <p class="meta">Courtney Berne &middot; History / Urban Studies / Geography</p>
+            <p>A multi-layered mapping project documenting the evolution of Black-run horse stables in North Philadelphia. Using GIS, archival research, and oral history, Berne traces how these stables have shaped and been shaped by urban change, creating a digital counter-narrative of a community often overlooked in official city records.</p>
+            <div class="tags">
+                <span class="tag">GIS</span>
+                <span class="tag">mapping</span>
+                <span class="tag">public history</span>
+                <span class="tag">urban studies</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2024</span>
+            <h3>Tunnel of Love: The First Makerspace Residency</h3>
+            <p class="meta">Ollie Goss &middot; Sculpture / Visual Art</p>
+            <p>The inaugural makerspace residency produced an immersive sculptural installation exploring queerness, secrecy, and visibility through the aesthetic of an amusement-park dark ride. Goss combined laser-cut components, electronics, and hand-crafted elements to create an interactive physical experience, setting the standard for residencies to come.</p>
+            <div class="tags">
+                <span class="tag">sculpture</span>
+                <span class="tag">electronics</span>
+                <span class="tag">laser cutting</span>
+                <span class="tag">critical making</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2024</span>
+            <h3>The Banned Books Project (3-Part Series)</h3>
+            <p class="meta">SaraGrace Stefan, Sydney Grimm, Abigail Corcelli &middot; Literary Studies / Digital Humanities</p>
+            <p>A collaborative, three-part computational text analysis initiative examining literary censorship from multiple angles: distant reading patterns across banned titles, visual rhetoric of banned book covers, and the mechanisms of censorship itself. The project, emerging from the Representation Lab, demonstrates how digital methods can illuminate systemic cultural forces.</p>
+            <div class="tags">
+                <span class="tag">text analysis</span>
+                <span class="tag">distant reading</span>
+                <span class="tag">data visualization</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2024</span>
+            <h3>Navigating the Western Movement of Artifacts: Mapping the Looted Benin Bronzes</h3>
+            <p class="meta">Mikayla Gonzalez &middot; History / Media Studies</p>
+            <p>A GIS-driven investigation of colonial artifact displacement, mapping the global journeys of the Benin Bronzes from their origins to museums and private collections worldwide. The project visualizes repatriation debates and the geographic dimensions of cultural heritage disputes.</p>
+            <div class="tags">
+                <span class="tag">mapping</span>
+                <span class="tag">cultural heritage</span>
+                <span class="tag">colonial history</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2024</span>
+            <h3>Rock TV: Makerspace Residency</h3>
+            <p class="meta">Francesca Lally &middot; Visual Art / Archaeology</p>
+            <p>An interdisciplinary project transforming vintage 1970s Fisher-Price Movie Viewers into hand-cranked cinema devices. Lally hand-painted Super 8 film sequences, laser-cut mirrored plexiglass panels inscribed with texts from Scottish geologists, and hand-typed a bound script on dura-lar film. The work was exhibited at Vox Populi's 2024 juried exhibition in Philadelphia.</p>
+            <div class="tags">
+                <span class="tag">laser cutting</span>
+                <span class="tag">film</span>
+                <span class="tag">sculpture</span>
+                <span class="tag">exhibition</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2024</span>
+            <h3>Green Design Lab: Pre-College in the Makerspace</h3>
+            <p class="meta">Hannah Tardie &middot; Education / Sustainable Design</p>
+            <p>A two-week pilot course bringing pre-college students into the makerspace to combine sustainable design principles with 3D printing and digital fabrication. The program introduced high schoolers to iterative prototyping while centering environmental responsibility.</p>
+            <div class="tags">
+                <span class="tag">3D printing</span>
+                <span class="tag">sustainability</span>
+                <span class="tag">education</span>
+                <span class="tag">digital fabrication</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2023</span>
+            <h3>Social Network Analysis of Abhidharma Buddhism Transmission in Early Medieval China</h3>
+            <p class="meta">Lu Huang &middot; Religion / Cultural Analytics</p>
+            <p>Applying computational social network analysis to centuries of Buddhist intellectual transmission, this project mapped how Abhidharma teachings traveled through networks of monks, translators, and institutions in early medieval China&mdash;revealing hidden patterns in the spread of religious knowledge.</p>
+            <div class="tags">
+                <span class="tag">network analysis</span>
+                <span class="tag">religion</span>
+                <span class="tag">cultural analytics</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2023</span>
+            <h3>Urban GIS, Land Cover, and Bees in the City</h3>
+            <p class="meta">Austin Martin &middot; Geography / Urban Studies / Ecology</p>
+            <p>Using remote sensing data and GIS spatial analysis, this project investigated urban landscapes as potential habitats for declining bee populations. By mapping land cover classifications across city environments, Martin demonstrated that cities can serve as unexpected havens for pollinators.</p>
+            <div class="tags">
+                <span class="tag">GIS</span>
+                <span class="tag">remote sensing</span>
+                <span class="tag">ecology</span>
+                <span class="tag">R</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2022</span>
+            <h3>Visualizing Wikidata: Identity and Representation in Black Art Exhibitions</h3>
+            <p class="meta">Synatra Smith, Jay Winkler, Rebecca Y. Bayeck &middot; Art History / Cultural Studies / Digital Humanities</p>
+            <p>A linked open data project using Python to query and visualize Wikidata's representation of Black art exhibitions. The project interrogated what knowledge structures like Wikidata include, exclude, and how they encode identity&mdash;bridging digital scholarship with critical race studies.</p>
+            <div class="tags">
+                <span class="tag">linked open data</span>
+                <span class="tag">Python</span>
+                <span class="tag">Wikidata</span>
+                <span class="tag">data visualization</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2022</span>
+            <h3>Visualizing Changes in Colombian Wetlands with ArcGIS Story Maps</h3>
+            <p class="meta">Maria Victoria Sarmiento Giraldo &middot; Geography / GIS</p>
+            <p>A spatial storytelling project documenting environmental land cover changes in Colombian wetland ecosystems using ArcGIS Story Maps. The work combined satellite imagery analysis with narrative to make ecological data accessible to wider audiences.</p>
+            <div class="tags">
+                <span class="tag">ArcGIS Story Maps</span>
+                <span class="tag">GIS</span>
+                <span class="tag">environmental studies</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2022</span>
+            <h3>Diggin' Philly: The Black Philadelphia Project</h3>
+            <p class="meta">Tauheedah Asad &middot; History / Urban Studies / Media</p>
+            <p>A digital cultural heritage initiative grounded in journalism that documents and preserves Black Philadelphia's built environment and community history. The two-part project explored digital practices for studying cultural heritage, combining mapping, oral history, and archival research.</p>
+            <div class="tags">
+                <span class="tag">cultural heritage</span>
+                <span class="tag">mapping</span>
+                <span class="tag">public history</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2021</span>
+            <h3>Creating a 3D Map of an Archaeological Site in Blender</h3>
+            <p class="meta">Elysia Petras &middot; Archaeology / History</p>
+            <p>A pioneering exploration of using the open-source 3D software Blender for historical archaeological research. Petras demonstrated how 3D terrain reconstruction can reveal spatial relationships invisible in traditional 2D site plans, creating new methods for landscape archaeology.</p>
+            <div class="tags">
+                <span class="tag">Blender</span>
+                <span class="tag">3D modeling</span>
+                <span class="tag">archaeology</span>
+                <span class="tag">landscape</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2020</span>
+            <h3>Arcade Our Way: Video Games and Toys for Social Change</h3>
+            <p class="meta">Renee Jackson &middot; Art Education / Gaming Studies</p>
+            <p>A faculty fellowship project culminating in an art exhibition (displayed through November 2021) that used video games and interactive toys as vehicles for social commentary. The project exemplified how game design and play can function as critical artistic practice.</p>
+            <div class="tags">
+                <span class="tag">game design</span>
+                <span class="tag">art</span>
+                <span class="tag">exhibition</span>
+                <span class="tag">social change</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2020</span>
+            <h3>Measuring Impact of Built Environment on Health (4-Part Series)</h3>
+            <p class="meta">Huilin Zhu &middot; Geography / Economics / Computer Science</p>
+            <p>A four-part deep dive using machine learning and neural networks to study how built environments affect health outcomes&mdash;specifically obesity prevalence&mdash;across Pennsylvania. The project combined satellite imagery, transfer learning with Keras, and spatial analysis in a genuinely interdisciplinary approach.</p>
+            <div class="tags">
+                <span class="tag">machine learning</span>
+                <span class="tag">neural networks</span>
+                <span class="tag">GIS</span>
+                <span class="tag">public health</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2018</span>
+            <h3>Virtual Blockson: An Accessible VR Experience</h3>
+            <p class="meta">Jasmine Clark &middot; Education / Digital Humanities</p>
+            <p>A multi-year initiative to create a virtual reality experience of Temple's Charles L. Blockson Afro-American Collection, with a sustained emphasis on accessibility. The project developed VR environments for history education while addressing how immersive technologies can be made inclusive for users with disabilities.</p>
+            <div class="tags">
+                <span class="tag">virtual reality</span>
+                <span class="tag">accessibility</span>
+                <span class="tag">cultural heritage</span>
+                <span class="tag">education</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2018</span>
+            <h3>Viral Networks: Does Misinformation Spread Like a Virus?</h3>
+            <p class="meta">Ania Korsunska &middot; Information Science / Media Studies</p>
+            <p>A network analysis project mapping how scientific misinformation propagates through social media, tracing citation chains and sharing patterns to understand the lifecycle of false claims. The work anticipated broader public concern about misinformation ecosystems.</p>
+            <div class="tags">
+                <span class="tag">network analysis</span>
+                <span class="tag">data visualization</span>
+                <span class="tag">misinformation</span>
+                <span class="tag">web scraping</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2017</span>
+            <h3>50 Years of Gen Con Events</h3>
+            <p class="meta">Matt Shoemaker &middot; History / Gaming Studies</p>
+            <p>A large-scale digital archive project documenting fifty years of Gen Con gaming convention programming. Built with Omeka, the publicly accessible archive (best50yearsingaming.com) became the foundation for the first dataset published in TUScholarShare, connecting gaming history with institutional data preservation.</p>
+            <div class="tags">
+                <span class="tag">Omeka</span>
+                <span class="tag">digital archive</span>
+                <span class="tag">gaming history</span>
+                <span class="tag">TUScholarShare</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2017</span>
+            <h3>Building a New Wave Science Fiction Corpus</h3>
+            <p class="meta">Alex Wermer-Colan &middot; Literary Studies / Cultural Studies</p>
+            <p>An annual partnership between the Digital Scholarship Center and Special Collections to digitize and build a machine-readable corpus of New Wave science fiction texts for computational literary analysis. The project combined OCR, text cleaning, and corpus linguistics to enable new forms of literary scholarship.</p>
+            <div class="tags">
+                <span class="tag">corpus building</span>
+                <span class="tag">text analysis</span>
+                <span class="tag">OCR</span>
+                <span class="tag">special collections</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2017</span>
+            <h3>Queer Encoding Conference</h3>
+            <p class="meta">Digital Scholarship Center &middot; Digital Humanities</p>
+            <p>The DSC co-sponsored "Queer Encoding: Encoding Diverse Identities," a conference on the Text Encoding Initiative that examined how digital encoding standards represent&mdash;or fail to represent&mdash;diverse identities. The event was live-streamed and its keynote presentations were archived online.</p>
+            <div class="tags">
+                <span class="tag">TEI</span>
+                <span class="tag">conference</span>
+                <span class="tag">digital humanities</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2016</span>
+            <h3>Mapping Ships Lost During the First World War</h3>
+            <p class="meta">Andrea Siotto &middot; Geography / History</p>
+            <p>A multi-part project combining web scraping (Python and C#), geocoding, and QGIS to map the locations and circumstances of naval losses during WWI. The series became a widely-read tutorial on the blog, walking readers through the full pipeline from data collection to animated geospatial visualization.</p>
+            <div class="tags">
+                <span class="tag">web scraping</span>
+                <span class="tag">Python</span>
+                <span class="tag">QGIS</span>
+                <span class="tag">historical mapping</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2015&ndash;2016</span>
+            <h3>If Gardens Could Talk</h3>
+            <p class="meta">Environmental Studies Graduate Students</p>
+            <p>An early critical making project using Arduino microcontrollers and Raspberry Pi sensors to give Philadelphia community gardens a "voice"&mdash;collecting environmental data and visualizing it through GIS. The project blended physical computing, environmental science, and community engagement, embodying the studio's ethos from its earliest days.</p>
+            <div class="tags">
+                <span class="tag">Arduino</span>
+                <span class="tag">Raspberry Pi</span>
+                <span class="tag">critical making</span>
+                <span class="tag">environmental studies</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="year-badge">2014&ndash;2015</span>
+            <h3>#WatchingCosmos: Twitter Network Analysis</h3>
+            <p class="meta">Angele M. Cirucci &middot; Media and Communication Studies</p>
+            <p>One of the studio's earliest documented projects, this network analysis of the Twitter conversation around the <em>Cosmos</em> reboot combined Voyant text analysis with social network visualization to examine who was watching, participating, and shaping public science discourse on social media.</p>
+            <div class="tags">
+                <span class="tag">network analysis</span>
+                <span class="tag">Twitter</span>
+                <span class="tag">Voyant</span>
+                <span class="tag">media studies</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>
+        <a href="https://library.temple.edu/lcdss">Loretta C. Duckworth Scholars Studio</a> &middot;
+        <a href="https://sites.temple.edu/tudsc/">LCDSS Blog</a> &middot;
+        Temple University Libraries
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">Charles Library, 1900 N. 13th Street, Philadelphia, PA 19122 &middot; digitalscholarship@temple.edu</p>
+</footer>
+
+</body>
+</html>
