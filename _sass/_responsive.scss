@@ -1,0 +1,65 @@
+// ==========================================
+// Global Responsive Overrides
+// ==========================================
+
+@media (max-width: $bp-mobile) {
+  section {
+    padding: 3rem 0;
+  }
+
+  .container,
+  .container-wide {
+    padding: 0 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spaces-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .spaces-list {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Print styles
+@media print {
+  .site-nav,
+  .nav-toggle,
+  .chart-tooltip {
+    display: none !important;
+  }
+
+  .site-header {
+    background: $cherry !important;
+    background-image: none !important;
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .header-overlay {
+    background: none !important;
+  }
+
+  section {
+    break-inside: avoid;
+    padding: 1.5rem 0;
+  }
+}

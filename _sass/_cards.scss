@@ -1,0 +1,230 @@
+// ==========================================
+// Service Cards
+// ==========================================
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 2rem;
+  box-shadow: $shadow-md;
+  border-top: 4px solid $cherry;
+  transition: transform $transition-med, box-shadow $transition-med;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+
+  h3 {
+    margin-top: 0;
+    color: $cherry;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0.35rem 0;
+    padding-left: 1.3rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: $text-light;
+
+    &::before {
+      content: "\25B8";
+      position: absolute;
+      left: 0;
+      color: $cherry;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// ==========================================
+// Space Items
+// ==========================================
+.spaces-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.space-item {
+  background: $white;
+  padding: 2rem 1.5rem;
+  border-radius: $radius-md;
+  text-align: center;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-med, box-shadow $transition-med;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+
+  .icon {
+    font-size: 2.8rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  h4 {
+    color: $cherry;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: $text-light;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// ==========================================
+// Program Items
+// ==========================================
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.program-item {
+  background: $white;
+  padding: 1.8rem;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-med, box-shadow $transition-med;
+  border-left: 4px solid transparent;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+    border-left-color: $cherry;
+  }
+
+  h4 {
+    color: $cherry;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  p {
+    font-size: 0.93rem;
+    color: $text-light;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+// ==========================================
+// Stat Cards (analysis page)
+// ==========================================
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-med, box-shadow $transition-med;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+
+  .number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: $cherry;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    font-family: $font-heading;
+  }
+
+  .label {
+    font-size: 0.88rem;
+    color: $text-light;
+    margin-top: 0.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+// ==========================================
+// Project list (home page brief)
+// ==========================================
+.project-card {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: $shadow-md;
+  border-left: 5px solid $cherry;
+  transition: transform $transition-med, box-shadow $transition-med;
+
+  &:hover {
+    transform: translateX(4px);
+    box-shadow: $shadow-lg;
+  }
+
+  .year-badge {
+    display: inline-block;
+    background: $cherry;
+    color: $white;
+    padding: 0.2rem 0.8rem;
+    border-radius: $radius-pill;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  .meta {
+    font-size: 0.9rem;
+    color: $text-light;
+    margin-bottom: 0.8rem;
+  }
+
+  .tags {
+    margin-top: 0.8rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background: $gray-light;
+    color: $text-light;
+    padding: 0.15rem 0.6rem;
+    border-radius: $radius-sm;
+    font-size: 0.8rem;
+    margin: 0.2rem 0.1rem;
+  }
+}

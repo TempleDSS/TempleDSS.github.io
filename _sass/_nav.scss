@@ -1,0 +1,131 @@
+// ==========================================
+// Sticky Navigation
+// ==========================================
+.site-nav {
+  background: $cherry;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow $transition-med, padding $transition-med;
+}
+
+.site-nav.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.nav-links a {
+  color: $white;
+  text-decoration: none;
+  padding: 0.9rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: background $transition-fast, opacity $transition-fast;
+  position: relative;
+
+  &:hover {
+    background: rgba($white, 0.1);
+    color: $white;
+  }
+
+  &.active {
+    background: rgba($white, 0.15);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 3px;
+      background: $accent;
+      border-radius: 2px 2px 0 0;
+    }
+  }
+}
+
+// Mini logo in nav (visible after scroll)
+.nav-logo {
+  height: 24px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  margin-right: 1.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity $transition-med, transform $transition-med;
+}
+
+.site-nav.scrolled .nav-logo {
+  opacity: 0.9;
+  transform: translateX(0);
+}
+
+// Hamburger toggle
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: $white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Mobile
+@media (max-width: $bp-mobile) {
+  .nav-inner {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: static;
+    transform: none;
+    align-self: flex-end;
+    margin-right: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 0.5rem;
+
+    &.open {
+      display: flex;
+    }
+
+    a {
+      padding: 0.8rem 2rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .nav-logo {
+    display: none;
+  }
+}

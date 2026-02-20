@@ -1,0 +1,51 @@
+// ==========================================
+// Footer
+// ==========================================
+.site-footer {
+  background: $gray-dark;
+  color: $white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  margin-bottom: 1.2rem;
+}
+
+.footer-temple-logo {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.footer-links {
+  margin-bottom: 0.5rem;
+
+  a {
+    color: $accent;
+    text-decoration: none;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+  }
+}
+
+.footer-address {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}

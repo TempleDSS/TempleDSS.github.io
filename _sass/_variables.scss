@@ -1,0 +1,38 @@
+// Temple University Branding
+$cherry:        #9D2235;
+$cherry-dark:   #7a1a29;
+$cherry-light:  #c9485b;
+$gray-dark:     #1a1a2e;
+$gray-mid:      #2d2d44;
+$gray-light:    #f4f4f8;
+$accent:        #e8c547;
+$text:          #333;
+$text-light:    #666;
+$white:         #fff;
+
+// Typography
+$font-heading: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$line-height: 1.7;
+
+// Breakpoints
+$bp-wide: 1200px;
+$bp-tablet: 900px;
+$bp-mobile: 768px;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+$shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+$shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+$shadow-xl: 0 12px 48px rgba(0,0,0,0.16);
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-med: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Border radius
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-pill: 50px;

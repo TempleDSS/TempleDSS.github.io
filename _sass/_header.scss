@@ -1,0 +1,126 @@
+// ==========================================
+// Hero Header with Parallax
+// ==========================================
+.site-header {
+  position: relative;
+  background: linear-gradient(135deg, $gray-dark, $cherry-dark);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: $white;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+// Gradient overlay for text readability
+.header-overlay {
+  position: relative;
+  width: 100%;
+  padding: 5rem 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba($gray-dark, 0.88),
+    rgba($cherry-dark, 0.78)
+  );
+  text-align: center;
+  z-index: 2;
+}
+
+// Decorative geometric shapes
+.header-overlay::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba($white, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.header-overlay::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba($white, 0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.header-content {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+// Temple T logo
+.temple-logo {
+  margin-bottom: 1.5rem;
+}
+
+.temple-t-logo {
+  height: 52px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Header typography
+.site-header h1 {
+  font-family: $font-heading;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.header-subtitle {
+  font-size: 1.15rem;
+  opacity: 0.85;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+// Mobile: disable parallax (iOS doesn't support it)
+@media (max-width: $bp-mobile) {
+  .site-header {
+    background-attachment: scroll;
+    min-height: 280px;
+  }
+
+  .header-overlay {
+    padding: 3rem 1.5rem;
+  }
+
+  .site-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header-subtitle {
+    font-size: 1rem;
+  }
+
+  .temple-t-logo {
+    height: 40px;
+  }
+}

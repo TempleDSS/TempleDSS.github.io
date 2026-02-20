@@ -1,0 +1,255 @@
+// ==========================================
+// Analysis Page
+// ==========================================
+.page-analysis main {
+  background: $gray-light;
+}
+
+.analysis-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+
+  h2 {
+    font-size: 1.8rem;
+
+    &::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  p {
+    color: $text-light;
+    font-size: 1.05rem;
+  }
+}
+
+// Chart sections
+.chart-section {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-med;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: $gray-dark;
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    color: $text-light;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+}
+
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  max-height: 450px;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  .chart-section {
+    margin-bottom: 0;
+  }
+}
+
+// ==========================================
+// Custom Chart Tooltip
+// ==========================================
+.chart-tooltip {
+  position: absolute;
+  pointer-events: auto;
+  background: $white;
+  border: 1px solid #e0e0e0;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  padding: 0;
+  z-index: 1000;
+  min-width: 280px;
+  max-width: 380px;
+  max-height: 400px;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  transform: translateY(4px);
+  overflow: hidden;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tooltip-header {
+  background: $cherry;
+  color: $white;
+  padding: 0.7rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  .tooltip-count {
+    float: right;
+    opacity: 0.8;
+    font-weight: 400;
+  }
+}
+
+.tooltip-posts {
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+}
+
+.tooltip-post {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background $transition-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $gray-light;
+  }
+
+  a {
+    display: block;
+    color: $text;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    font-weight: 500;
+
+    &:hover {
+      color: $cherry;
+    }
+  }
+
+  .tooltip-meta {
+    font-size: 0.75rem;
+    color: $text-light;
+    margin-top: 0.15rem;
+  }
+}
+
+.tooltip-more {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  color: $text-light;
+  font-style: italic;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+// ==========================================
+// Data Table
+// ==========================================
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+
+  th {
+    background: $cherry;
+    color: $white;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  tr:hover td {
+    background: $gray-light;
+  }
+
+  .bar-cell {
+    position: relative;
+  }
+
+  .bar {
+    display: inline-block;
+    height: 18px;
+    background: linear-gradient(90deg, $cherry, $cherry-light);
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+}
+
+// Methodology box
+.methodology {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  box-shadow: $shadow-sm;
+  border-left: 4px solid $cherry;
+
+  h3 {
+    color: $cherry;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: $text-light;
+  }
+
+  code {
+    background: $gray-light;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+}
+
+// Responsive
+@media (max-width: $bp-mobile) {
+  .chart-row {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-section {
+    padding: 1.5rem;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-tooltip {
+    min-width: 240px;
+    max-width: 300px;
+  }
+}
