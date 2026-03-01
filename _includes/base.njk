@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default(site.title) }} | {{ site.title }}</title>
+  <meta name="description" content="{{ description | default(site.description) }}">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  {% if extra_head_js %}
+    {% for js in extra_head_js %}
+  <script src="{{ js }}"></script>
+    {% endfor %}
+  {% endif %}
+</head>
+<body class="{{ body_class | default('') }}">
+  {% include "header.njk" %}
+  {% include "nav.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

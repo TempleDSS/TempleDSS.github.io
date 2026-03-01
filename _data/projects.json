@@ -1,0 +1,188 @@
+[
+  {
+    "year": 2025,
+    "title": "Building an Immersive Archive of Greek Orthodox Churches in Istanbul",
+    "author": "Emily Neumeier",
+    "discipline": "Art History / Architecture",
+    "tags": ["360 video", "3D modeling", "cultural heritage"],
+    "url": "https://sites.temple.edu/tudsc/2025/04/15/building-an-immersive-archive-of-the-greek-orthodox-churches-in-istanbul/",
+    "image": "https://sites.temple.edu/tudsc/files/2025/04/Screenshot-2024-11-15-at-11.42.04-AM-850x411.jpeg",
+    "description": "A 360-video and 3D modeling project documenting endangered Greek Orthodox churches across Istanbul for preservation and virtual access.",
+    "featured": true
+  },
+  {
+    "year": 2025,
+    "title": "The Untold History of Fletcher Street's Stables",
+    "author": "Courtney Berne",
+    "discipline": "History / Urban Studies",
+    "tags": ["GIS", "mapping", "public history"],
+    "url": "https://sites.temple.edu/tudsc/2025/04/21/the-untold-history-of-fletcher-streets-stables/",
+    "image": "https://sites.temple.edu/tudsc/files/2025/04/HORSE.jpg",
+    "description": "A GIS mapping project tracing the long history of Philadelphia's Fletcher Street urban horseback riding community."
+  },
+  {
+    "year": 2024,
+    "title": "Tunnel of Love: The First Makerspace Residency",
+    "author": "Ollie Goss",
+    "discipline": "Sculpture / Visual Art",
+    "tags": ["laser cutting", "electronics", "critical making"],
+    "url": "https://sites.temple.edu/tudsc/2024/06/17/tunnel-of-love-the-first-makerspace-residency/",
+    "image": "https://sites.temple.edu/tudsc/files/2024/01/thumbnail_IMG_3916-850x665.jpg",
+    "description": "The inaugural Makerspace Residency combining laser cutting, electronics, and sculpture to create an immersive light installation.",
+    "featured": true
+  },
+  {
+    "year": 2024,
+    "title": "The Banned Books Project (3-Part Series)",
+    "author": "SaraGrace Stefan, Sydney Grimm, Abigail Corcelli",
+    "discipline": "Literary Studies / DH",
+    "tags": ["text analysis", "distant reading", "data visualization"],
+    "url": "https://sites.temple.edu/tudsc/2024/05/01/climbing-a-mountain-of-books-with-distant-reading-part-1-of-the-banned-books-project/",
+    "image": "https://sites.temple.edu/tudsc/files/2024/04/BannedBook_Windowledge_Long-1-850x199.jpg",
+    "description": "A three-part distant reading analysis of frequently banned books in American schools, using text mining and data visualization.",
+    "featured": true
+  },
+  {
+    "year": 2024,
+    "title": "Mapping the Looted Benin Bronzes",
+    "author": "Mikayla Gonzalez",
+    "discipline": "History / Media Studies",
+    "tags": ["mapping", "cultural heritage", "colonial history"],
+    "url": "https://sites.temple.edu/tudsc/2024/04/01/navigating-the-western-movement-of-artifacts-mapping-the-looted-benin-bronzes/",
+    "image": "https://sites.temple.edu/tudsc/files/2024/03/Felt-image-850x422.png",
+    "description": "An interactive map tracking the dispersal of looted Benin Bronzes across Western institutions to visualize colonial appropriation.",
+    "featured": true
+  },
+  {
+    "year": 2024,
+    "title": "Rock TV: Makerspace Residency",
+    "author": "Francesca Lally",
+    "discipline": "Visual Art / Archaeology",
+    "tags": ["laser cutting", "film", "sculpture"],
+    "url": "https://sites.temple.edu/tudsc/2024/09/30/makerspace-residency-rock-tv/",
+    "image": "https://sites.temple.edu/tudsc/files/2024/09/Lally.jpg",
+    "description": "A makerspace residency blending archaeology, film, and laser-cut sculpture to explore deep time through rock-themed television."
+  },
+  {
+    "year": 2024,
+    "title": "Green Design Lab: Pre-College in the Makerspace",
+    "author": "Hannah Tardie",
+    "discipline": "Education / Sustainable Design",
+    "tags": ["3D printing", "sustainability", "digital fabrication"],
+    "url": "https://sites.temple.edu/tudsc/2024/08/21/green-design-lab-pre-college-in-the-makerspace/",
+    "image": "https://sites.temple.edu/tudsc/files/2024/08/IMG_9344-850x1133.jpg",
+    "description": "A pre-college summer program teaching sustainable design through 3D printing, solar circuits, and digital fabrication."
+  },
+  {
+    "year": 2024,
+    "title": "Mapping Kim Lim's Artistic Practice",
+    "author": "Jessica Braum",
+    "discipline": "Art History / Asian Studies",
+    "tags": ["mapping", "art history", "transnational"],
+    "url": "https://sites.temple.edu/tudsc/2024/11/18/mapping-kim-lims-artistic-practice-a-digital-humanities-approach-to-art-history/",
+    "image": "https://sites.temple.edu/tudsc/files/2024/11/IMG_2327-850x851.jpeg",
+    "description": "A digital humanities approach mapping the transnational exhibition history and artistic networks of sculptor Kim Lim."
+  },
+  {
+    "year": 2023,
+    "title": "Urban GIS, Land Cover, and Bees in the City",
+    "author": "Austin Martin",
+    "discipline": "Geography / Ecology",
+    "tags": ["GIS", "remote sensing", "R"],
+    "url": "https://sites.temple.edu/tudsc/2023/05/15/urban-gis-land-cover-and-bees-in-the-city/",
+    "image": "https://sites.temple.edu/tudsc/files/2023/05/new-new-Screenshot-2023-05-12-183423.png",
+    "description": "Using GIS and remote sensing in R to analyze urban land cover patterns and their relationship to bee habitat diversity in Philadelphia."
+  },
+  {
+    "year": 2022,
+    "title": "Visualizing Wikidata: Identity and Representation in Black Art Exhibitions",
+    "author": "Synatra Smith, Jay Winkler, Rebecca Y. Bayeck",
+    "discipline": "Art History / Cultural Studies",
+    "tags": ["linked open data", "Python", "Wikidata"],
+    "url": "https://sites.temple.edu/tudsc/2022/01/24/visualizing-wikidata-using-python-to-analyze-identity-and-representation-in-wikidata-about-black-art-exhibitions/",
+    "image": "https://sites.temple.edu/tudsc/files/2022/01/fig4_philly-850x411.png",
+    "description": "Using Python to query and visualize Wikidata, analyzing how identity and representation are encoded in records of Black art exhibitions.",
+    "featured": true
+  },
+  {
+    "year": 2022,
+    "title": "Visualizing Changes in Colombian Wetlands with ArcGIS Story Maps",
+    "author": "Maria Victoria Sarmiento Giraldo",
+    "discipline": "Geography / GIS",
+    "tags": ["ArcGIS Story Maps", "GIS", "environmental studies"],
+    "url": "https://sites.temple.edu/tudsc/2022/03/21/visualizing-changes-in-colombian-wetlands-with-arcgis-story-maps/",
+    "image": "https://sites.temple.edu/tudsc/files/2022/03/Infrared-map-850x657.jpeg",
+    "description": "An ArcGIS Story Map visualizing environmental change in Colombian wetland ecosystems using satellite infrared imagery."
+  },
+  {
+    "year": 2022,
+    "title": "Diggin' Philly: The Black Philadelphia Project",
+    "author": "Tauheedah Asad",
+    "discipline": "History / Urban Studies",
+    "tags": ["cultural heritage", "mapping", "public history"],
+    "url": "https://sites.temple.edu/tudsc/2022/02/08/digital-practices-for-the-study-of-cultural-heritage-part-1/",
+    "image": "https://sites.temple.edu/tudsc/files/2022/01/tumblr_nu4bhoSfvF1u8k59io1_400.jpg",
+    "description": "A digital cultural heritage project mapping and documenting Black Philadelphia's historic sites and communities."
+  },
+  {
+    "year": 2021,
+    "title": "Creating a 3D Map of an Archaeological Site in Blender",
+    "author": "Elysia Petras",
+    "discipline": "Archaeology / History",
+    "tags": ["Blender", "3D modeling", "landscape"],
+    "url": "https://sites.temple.edu/tudsc/2021/04/03/creating-a-3d-map-of-an-archaeological-site-in-blender/",
+    "image": "https://sites.temple.edu/tudsc/files/2021/04/Constructionlabeledcrop-850x412.jpg",
+    "description": "A tutorial on building 3D terrain models of archaeological sites in Blender using historical maps and elevation data."
+  },
+  {
+    "year": 2020,
+    "title": "Arcade Our Way: Video Games and Toys for Social Change",
+    "author": "Renee Jackson",
+    "discipline": "Art Education / Gaming",
+    "tags": ["game design", "exhibition", "social change"],
+    "url": "https://sites.temple.edu/tudsc/2020/12/07/arcade-our-way-video-games-and-toys-for-social-change/",
+    "image": "https://sites.temple.edu/tudsc/files/2020/12/IMG_0111-850x638.jpeg",
+    "description": "An exhibition and game design project creating video games and interactive toys that address social justice themes."
+  },
+  {
+    "year": 2020,
+    "title": "Measuring Impact of Built Environment on Health (4-Part Series)",
+    "author": "Huilin Zhu",
+    "discipline": "Geography / Computer Science",
+    "tags": ["machine learning", "neural networks", "GIS"],
+    "url": "https://sites.temple.edu/tudsc/2020/04/22/measuring-impact-of-built-environment-on-health-part-iv-data-analysis/",
+    "image": "https://sites.temple.edu/tudsc/files/2020/04/Screen-Shot-2020-04-09-at-8.48.57-AM-850x540.png",
+    "description": "A four-part machine learning series using neural networks and GIS to predict health outcomes from built environment features."
+  },
+  {
+    "year": 2017,
+    "title": "50 Years of Gen Con Events",
+    "author": "Matt Shoemaker",
+    "discipline": "History / Gaming Studies",
+    "tags": ["Omeka", "digital archive", "TUScholarShare"],
+    "url": "https://sites.temple.edu/tudsc/2017/07/26/50-years-of-gen-con-events-best50yearsingaming-com/",
+    "image": "https://sites.temple.edu/tudsc/files/2017/07/25406f529f4052760246809f9f4666231-e1500665430917.jpg",
+    "description": "A digital archive built with Omeka cataloging 50 years of Gen Con gaming convention programs and events."
+  },
+  {
+    "year": 2016,
+    "title": "Mapping Ships Lost During the First World War",
+    "author": "Andrea Siotto",
+    "discipline": "Geography / History",
+    "tags": ["web scraping", "Python", "QGIS"],
+    "url": "https://sites.temple.edu/tudsc/2016/08/30/mapping-the-ships-lost-during-the-first-world-war/",
+    "image": "https://sites.temple.edu/tudsc/files/2016/08/Img-Blog-Intro-WW1-map.jpg",
+    "description": "Web scraping historical shipping records and mapping WWI vessel losses in QGIS to visualize the geographic scope of naval warfare.",
+    "featured": true
+  },
+  {
+    "year": 2015,
+    "title": "If Gardens Could Talk",
+    "author": "Environmental Studies Graduate Students",
+    "discipline": "Environmental Studies",
+    "tags": ["Arduino", "Raspberry Pi", "critical making"],
+    "url": "https://sites.temple.edu/tudsc/2015/09/17/if-gardens-could-talk-part-1/",
+    "image": "https://sites.temple.edu/tudsc/files/2015/09/Quantum-Alice-2.jpg",
+    "description": "A critical making project using Arduino and Raspberry Pi sensors to give community gardens a digital voice."
+  }
+]

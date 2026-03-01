@@ -1,0 +1,68 @@
+---
+layout: base.njk
+title: "Project Index"
+header_title: 'Project <strong>Index</strong>'
+header_subtitle: "Featured projects from the Loretta C. Duckworth Scholars Studio, 2015–2025"
+body_class: page-projects
+permalink: /projects/
+---
+
+<div class="container" style="padding-top: 3rem; padding-bottom: 3rem;">
+
+    <p class="projects-intro">A curated selection of projects produced at the Scholars Studio, spanning mapping, text analysis, 3D modeling, critical making, and more. Each links to the original blog post on the <a href="{{ site.blog_url }}">LCDSS blog</a>.</p>
+
+    <h2>Featured</h2>
+
+    <div class="featured-grid stagger-children">
+        {% for project in projects %}
+            {% if project.featured %}
+            <a href="{{ project.url }}" class="featured-card">
+                <div class="featured-card-image">
+                    <img src="{{ project.image }}" alt="{{ project.title }}" loading="lazy">
+                </div>
+                <div class="featured-card-body">
+                    <span class="featured-card-year">{{ project.year }}</span>
+                    <h3>{{ project.title }}</h3>
+                    <p class="featured-card-author">{{ project.author }}</p>
+                    <p class="featured-card-desc">{{ project.description }}</p>
+                    <div class="featured-card-tags">
+                        {% for tag in project.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <h2 style="margin-top: 3rem;">All Projects</h2>
+
+    <table class="data-table project-table">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Project</th>
+                <th>Author(s)</th>
+                <th>Discipline</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td><strong>{{ project.year }}</strong></td>
+                <td><a href="{{ project.url }}">{{ project.title }}</a></td>
+                <td>{{ project.author }}</td>
+                <td>{{ project.discipline }}</td>
+                <td>
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

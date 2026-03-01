@@ -27,6 +27,14 @@
   .programs-grid {
     grid-template-columns: 1fr;
   }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card-image {
+    height: 180px;
+  }
 }
 
 @media (max-width: 480px) {

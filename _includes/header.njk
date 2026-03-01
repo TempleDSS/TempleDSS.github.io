@@ -1,0 +1,11 @@
+<header class="site-header" {% if hero_image %}style="background-image: url('{{ hero_image }}')"{% elif site.blog_header_image %}style="background-image: url('{{ site.blog_header_image }}')"{% endif %}>
+  <div class="header-overlay">
+    <div class="header-content">
+      <div class="temple-logo">
+        <img src="{{ site.temple_logo_url }}" alt="Temple University" class="temple-t-logo">
+      </div>
+      <h1>{{ header_title | default(site.title) | safe }}</h1>
+      <p class="header-subtitle">{{ header_subtitle | default(site.description) }}</p>
+    </div>
+  </div>
+</header>

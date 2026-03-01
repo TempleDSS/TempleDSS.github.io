@@ -1,0 +1,97 @@
+---
+layout: base.njk
+title: "Home"
+header_title: 'Scholars Studio <strong>Data</strong>'
+header_subtitle: "Analyzing a decade of digital scholarship at Temple University Libraries"
+hero_image: "https://sites.temple.edu/tudsc/files/2018/10/cover-web-2.jpg"
+body_class: page-home
+permalink: /
+---
+
+<section id="overview">
+<div class="container">
+    <h2>About This Site</h2>
+    <p>This site is a data analysis companion to the <a href="https://library.temple.edu/lcdss">Loretta C. Duckworth Scholars Studio</a> at Temple University Libraries. Rather than duplicate the official <a href="https://library.temple.edu/lcdss">library page</a> or the <a href="https://sites.temple.edu/tudsc/">LCDSS blog</a>, this site focuses on analyzing the studio's publicly available output &mdash; its blog archive, project history, and publishing patterns.</p>
+</div>
+</section>
+
+<section id="stats-preview">
+<div class="container">
+    <h2>By the Numbers</h2>
+    <div class="stats-row stagger-children">
+        <div class="stat-card">
+            <div class="number">230+</div>
+            <div class="label">Blog Posts</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">12</div>
+            <div class="label">Years Active</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">90+</div>
+            <div class="label">Unique Authors</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">35+</div>
+            <div class="label">Disciplines</div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="featured-projects">
+<div class="container">
+    <h2>Featured Projects</h2>
+    <div class="featured-grid stagger-children">
+        {% for project in projects %}
+            {% if project.featured %}
+            <a href="{{ project.url }}" class="featured-card">
+                <div class="featured-card-image">
+                    <img src="{{ project.image }}" alt="{{ project.title }}" loading="lazy">
+                </div>
+                <div class="featured-card-body">
+                    <span class="featured-card-year">{{ project.year }}</span>
+                    <h3>{{ project.title }}</h3>
+                    <p class="featured-card-author">{{ project.author }}</p>
+                    <p class="featured-card-desc">{{ project.description }}</p>
+                    <div class="featured-card-tags">
+                        {% for tag in project.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <p style="text-align: center; margin-top: 2rem;">
+        <a href="/projects/" class="view-all-link">View all projects &rarr;</a>
+    </p>
+</div>
+</section>
+
+<section id="explore">
+<div class="container">
+    <h2>Explore</h2>
+    <div class="landing-cards">
+        <a href="/analysis/" class="landing-card">
+            <h3>Blog Analysis</h3>
+            <p>Interactive charts and tables tracking 230+ blog posts across 12 years &mdash; publishing trends, disciplinary coverage, author demographics, and the evolution of digital methods.</p>
+        </a>
+        <a href="/projects/" class="landing-card">
+            <h3>Project Index</h3>
+            <p>A compact reference of featured projects from 2015 to 2025, linking back to the original blog posts on the Scholars Studio site.</p>
+        </a>
+    </div>
+</div>
+</section>
+
+<section id="links">
+<div class="container">
+    <h2>Official Sites</h2>
+    <ul>
+        <li><a href="https://library.temple.edu/lcdss">Scholars Studio at Temple University Libraries</a> &mdash; services, spaces, programs, and contact information</li>
+        <li><a href="https://sites.temple.edu/tudsc/">LCDSS Blog</a> &mdash; the full archive of project writeups, tutorials, and reflections</li>
+    </ul>
+</div>
+</section>
